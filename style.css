@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #1a1a2e;
+  border: 2px solid #0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.cell:hover {
+  background: #0ff;
+  color: #1a1a2e;
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+.cell.taken {
+  pointer-events: none;
+}
+
+.message {
+  margin-top: 20px;
+  display: none;
+}
+
+.message.active {
+  display: block;
+}
+
+.winner-text {
+  font-size: 1.5rem;
+  color: #f0f;
+  text-shadow: 0 0 10px #f0f, 0 0 20px #f0f;
+}
+
+button {
+  background: #f0f;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
