@@ -5,43 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberpunk Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
   <div class="container">
     <h1 class="title">Cyberpunk Tic Tac Toe</h1>
     <center>
-    <div class="game-board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </div>
+      <div class="game-board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
     </center>
-
-    <!-- AdMob Ad Container -->
-    <div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block"
-         data-ad-client="ca-pub-3940256099942544"
-data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
     <div class="message">
       <p class="winner-text"></p>
       <button id="restart">Restart</button>
     </div>
   </div>
+
+  <!-- AdMob Banner -->
+  <div id="ad-container" style="text-align: center; margin-top: 20px;">
+    <ins class="adsbygoogle"
+      style="display:block; width: 320px; height: 50px; margin: 0 auto;"
+      data-ad-client="ca-pub-3940256099942544" 
+      data-ad-slot="1234567890" 
+      data-ad-format="auto"></ins>
+  </div>
+
+  <!-- Firebase and AdMob Scripts -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrYs08waaUvNpAOa4VwmbI1ChTey_ci3I",
+      authDomain: "cyberpunk-tic-tac-toe.firebaseapp.com",
+      projectId: "cyberpunk-tic-tac-toe",
+      storageBucket: "cyberpunk-tic-tac-toe.firebasestorage.app",
+      messagingSenderId: "766820587391",
+      appId: "1:766820587391:web:27bd3d1a6183d2d2f62c4a",
+      measurementId: "G-7TCHKMVYL8"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log("Firebase Initialized");
+
+    // Log a custom event when the restart button is clicked
+    document.getElementById("restart").addEventListener("click", () => {
+      logEvent(analytics, "game_restart", { player: "X" });
+      console.log("Game restart event logged");
+    });
+  </script>
+
+  <!-- AdMob SDK -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    // AdMob Configuration
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    console.log("AdMob Banner Ad Loaded");
+  </script>
+
+  <!-- Game Logic Script -->
   <script src="script.js"></script>
 </body>
 </html>
