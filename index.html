@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberpunk Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
+
   <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
@@ -23,17 +24,28 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
+
   <!-- AdMob SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getAdMob } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-admob.js";
     
-    const firebaseApp = initializeApp(firebaseConfig);
-    const admob = getAdMob(firebaseApp);
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrYs08waaUvNpAOa4VwmbI1ChTey_ci3I",
+      authDomain: "cyberpunk-tic-tac-toe.firebaseapp.com",
+      projectId: "cyberpunk-tic-tac-toe",
+      storageBucket: "cyberpunk-tic-tac-toe.firebasestorage.app",
+      messagingSenderId: "766820587391",
+      appId: "1:766820587391:web:27bd3d1a6183d2d2f62c4a",
+      measurementId: "G-7TCHKMVYL8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const admob = getAdMob(app);
 
     // Show Banner Ad
     admob.banner.load({
-      adUnitId: 'YOUR_ADMOB_BANNER_ID',  // Use your actual AdMob Banner ID
+      adUnitId: 'ca-app-pub-4481364556222677/4553988563',  // Use your actual AdMob Banner ID
       position: 'bottom',
     }).then(() => {
       admob.banner.show();
