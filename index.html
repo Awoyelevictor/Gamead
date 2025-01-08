@@ -28,32 +28,37 @@
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-    // Set up the App Open Ad
-    let appOpenAd = null;
-
-    function loadAppOpenAd() {
-      appOpenAd = new google.ads.app.openAd({
-        adUnitId: 'ca-app-pub-4481364556222677/4553988563', // Your actual App Open Ad Unit ID
-      });
-
-      appOpenAd.load().then(() => {
-        appOpenAd.show();
-      }).catch((err) => {
-        console.log('App Open Ad failed to load', err);
-      });
-    }
-
-    // Automatically show App Open Ad when the page is loaded
-    window.onload = loadAppOpenAd;
-
-    // Banner Ad setup (in case you want to include it)
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-4481364556222677",  // Replace with your actual Publisher ID
+      google_ad_client: "ca-pub-4481364556222677", // Your Ad Publisher ID
       enable_page_level_ads: true
     });
   </script>
+
+  <style>
+    /* Ad overlay styling */
+    .ad-overlay {
+      position: absolute; /* Overlay the content */
+      top: 10px;          /* Position slightly below the top of the page */
+      left: 50%;          /* Center horizontally */
+      transform: translateX(-50%);
+      z-index: 1000;      /* Ensure it appears above other elements */
+    }
+  </style>
 </head>
 <body>
+  <!-- Banner Ad Overlay -->
+  <div class="ad-overlay">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-4481364556222677" <!-- Your Publisher ID -->
+         data-ad-slot="4553988563"> <!-- Your Ad Slot ID -->
+    </ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- Main Content -->
   <center>
     <div class="container">
       <h1 class="title">Cyberpunk Tic Tac Toe</h1>
@@ -76,18 +81,6 @@
       </div>
     </div>
   </center>
-
-  <!-- Optional Banner Ad (You can remove this if you're only using App Open Ad) -->
-  <div style="text-align:center; margin-top:20px;">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:320px;height:50px"
-         data-ad-client="ca-pub-4481364556222677"  <!-- Replace with your actual Ad Client ID -->
-         data-ad-slot="4553988563"> <!-- Your actual Ad Slot ID -->
-    </ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
 
   <script src="script.js"></script>
 </body>
