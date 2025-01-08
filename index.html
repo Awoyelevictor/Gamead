@@ -28,35 +28,14 @@
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-    // Request configuration for test devices
+    // Replace with your actual AdMob publisher ID
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-3940256099942544", // Your Ad Publisher ID
+      google_ad_client: "ca-pub-4481364556222677", // Your Publisher ID
       enable_page_level_ads: true
     });
   </script>
-
-  <!-- Banner Ad -->
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-3940256099942544",
-      slot: "6300978111", // Test ad slot ID
-      format: "auto"
-    });
-  </script>
-
-  <style>
-    /* Ad overlay styling (optional if you want to style the placement of ad) */
-    .ad-overlay {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-    }
-  </style>
 </head>
 <body>
-  <!-- Main Content -->
   <center>
     <div class="container">
       <h1 class="title">Cyberpunk Tic Tac Toe</h1>
@@ -79,6 +58,18 @@
       </div>
     </div>
   </center>
+
+  <!-- Banner Ad -->
+  <div style="text-align:center; margin-top:20px;">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-4481364556222677"  <!-- Replace with your actual Ad Client ID -->
+         data-ad-slot="3238544066"> <!-- Replace with your actual Ad Slot ID -->
+    </ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <script src="script.js"></script>
 </body>
