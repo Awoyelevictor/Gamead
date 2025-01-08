@@ -28,9 +28,27 @@
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-    // Replace with your actual AdMob publisher ID
+    // Set up the App Open Ad
+    let appOpenAd = null;
+
+    function loadAppOpenAd() {
+      appOpenAd = new google.ads.app.openAd({
+        adUnitId: 'ca-app-pub-4481364556222677/4553988563', // Your actual App Open Ad Unit ID
+      });
+
+      appOpenAd.load().then(() => {
+        appOpenAd.show();
+      }).catch((err) => {
+        console.log('App Open Ad failed to load', err);
+      });
+    }
+
+    // Automatically show App Open Ad when the page is loaded
+    window.onload = loadAppOpenAd;
+
+    // Banner Ad setup (in case you want to include it)
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-4481364556222677", // Your Publisher ID
+      google_ad_client: "ca-pub-4481364556222677",  // Replace with your actual Publisher ID
       enable_page_level_ads: true
     });
   </script>
@@ -59,7 +77,7 @@
     </div>
   </center>
 
-  <!-- Banner Ad -->
+  <!-- Optional Banner Ad (You can remove this if you're only using App Open Ad) -->
   <div style="text-align:center; margin-top:20px;">
     <ins class="adsbygoogle"
          style="display:inline-block;width:320px;height:50px"
