@@ -5,26 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberpunk Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
-  
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrYs08waaUvNpAOa4VwmbI1ChTey_ci3I",
+      authDomain: "cyberpunk-tic-tac-toe.firebaseapp.com",
+      projectId: "cyberpunk-tic-tac-toe",
+      storageBucket: "cyberpunk-tic-tac-toe.firebasestorage.app",
+      messagingSenderId: "766820587391",
+      appId: "1:766820587391:web:27bd3d1a6183d2d2f62c4a",
+      measurementId: "G-7TCHKMVYL8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
+    // Request configuration for test devices
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-3940256099942544",
+      google_ad_client: "ca-pub-3940256099942544", // Your Ad Publisher ID
       enable_page_level_ads: true
     });
+  </script>
 
-    // Remove data-slot element if it's showing
-    window.onload = function() {
-      const dataSlot = document.querySelector('[data-slot]');
-      if (dataSlot) {
-        dataSlot.style.display = 'none'; // Hide it from the page
-      }
-    };
+  <!-- Banner Ad -->
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-3940256099942544",
+      slot: "6300978111", // Test ad slot ID
+      format: "auto"
+    });
   </script>
 
   <style>
-    /* Your custom styling here */
+    /* Ad overlay styling (optional if you want to style the placement of ad) */
     .ad-overlay {
       position: absolute;
       top: 10px;
@@ -39,17 +60,19 @@
   <center>
     <div class="container">
       <h1 class="title">Cyberpunk Tic Tac Toe</h1>
-      <div class="game-board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
+      <center>
+        <div class="game-board">
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+        </div>
+      </center>
       <div class="message">
         <p class="winner-text"></p>
         <button id="restart">Restart</button>
