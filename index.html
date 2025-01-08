@@ -25,56 +25,52 @@
     const analytics = getAnalytics(app);
   </script>
 
-  <!-- AdMob SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getAdMob } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-admob.js";
-    
-    const firebaseConfig = {
-      apiKey: "AIzaSyCrYs08waaUvNpAOa4VwmbI1ChTey_ci3I",
-      authDomain: "cyberpunk-tic-tac-toe.firebaseapp.com",
-      projectId: "cyberpunk-tic-tac-toe",
-      storageBucket: "cyberpunk-tic-tac-toe.firebasestorage.app",
-      messagingSenderId: "766820587391",
-      appId: "1:766820587391:web:27bd3d1a6183d2d2f62c4a",
-      measurementId: "G-7TCHKMVYL8"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const admob = getAdMob(app);
-
-    // Show Banner Ad
-    admob.banner.load({
-      adUnitId: 'ca-app-pub-4481364556222677/4553988563',  // Use your actual AdMob Banner ID
-      position: 'bottom',
-    }).then(() => {
-      admob.banner.show();
+  <!-- Google Mobile Ads SDK -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    // Configure test ads using Google's demo ad unit ID
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-3940256099942544", // Test Publisher ID
+      enable_page_level_ads: true
     });
   </script>
 </head>
 <body>
   <center>
-  <div class="container">
-    <h1 class="title">Cyberpunk Tic Tac Toe</h1>
-    <center>
-      <div class="game-board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
+    <div class="container">
+      <h1 class="title">Cyberpunk Tic Tac Toe</h1>
+      <center>
+        <div class="game-board">
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+        </div>
+      </center>
+      <div class="message">
+        <p class="winner-text"></p>
+        <button id="restart">Restart</button>
       </div>
-    </center>
-    <div class="message">
-      <p class="winner-text"></p>
-      <button id="restart">Restart</button>
     </div>
+  </center>
+
+  <!-- Banner Ad -->
+  <div style="text-align:center; margin-top:20px;">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-3940256099942544"  <!-- Test Ad Client ID -->
+         data-ad-slot="6300978111"> <!-- Test Banner Ad Slot -->
+    </ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
-</center>
+
   <script src="script.js"></script>
 </body>
 </html>
