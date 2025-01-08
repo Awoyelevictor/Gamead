@@ -34,21 +34,31 @@
       enable_page_level_ads: true
     });
   </script>
+
+  <style>
+    /* Hide the data-ad-slot attribute element */
+    .ins.adsbygoogle {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+    }
+  </style>
+
 </head>
 <body>
   <center>
     <div class="container">
         <!-- Banner Ad -->
-  <div style="text-align:center; margin-top:20px; background-color: white;>
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:320px;height:50px"
-         data-ad-client="ca-pub-3940256099942544"  <!-- Test Ad Client ID -->
-         data-ad-slot="6300978111"> <!-- Test Banner Ad Slot -->
-    </ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+        <div style="text-align:center; margin-top:20px; background-color: white;">
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:320px;height:50px"
+               data-ad-client="ca-pub-3940256099942544"  <!-- Test Ad Client ID -->
+               data-ad-slot="6300978111"> <!-- Test Banner Ad Slot -->
+          </ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       <h1 class="title">Cyberpunk Tic Tac Toe</h1>
       <center>
         <div class="game-board">
@@ -69,8 +79,6 @@
       </div>
     </div>
   </center>
-
-
 
   <script src="script.js"></script>
 </body>
