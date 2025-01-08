@@ -5,62 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberpunk Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCrYs08waaUvNpAOa4VwmbI1ChTey_ci3I",
-      authDomain: "cyberpunk-tic-tac-toe.firebaseapp.com",
-      projectId: "cyberpunk-tic-tac-toe",
-      storageBucket: "cyberpunk-tic-tac-toe.firebasestorage.app",
-      messagingSenderId: "766820587391",
-      appId: "1:766820587391:web:27bd3d1a6183d2d2f62c4a",
-      measurementId: "G-7TCHKMVYL8"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-
+  
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-    // Request configuration for test devices
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-3940256099942544", // Your Ad Publisher ID
+      google_ad_client: "ca-pub-3940256099942544",
       enable_page_level_ads: true
     });
 
-    // Interstitial ad setup
-    let interstitialAd;
-    function loadInterstitialAd() {
-      interstitialAd = new google.ads.interactive.MediaInterstitialAd({
-        adUnitPath: "ca-app-pub-3940256099942544/1033173712",  // Test interstitial ad ID
-      });
-
-      interstitialAd.load();
-    }
-
-    // Show the interstitial ad when the game ends or at appropriate moment
-    function showInterstitialAd() {
-      if (interstitialAd.isLoaded()) {
-        interstitialAd.show();
-      } else {
-        console.log("Interstitial ad not loaded yet.");
-      }
-    }
-
-    // Load ad on page load
+    // Remove data-slot element if it's showing
     window.onload = function() {
-      loadInterstitialAd();
+      const dataSlot = document.querySelector('[data-slot]');
+      if (dataSlot) {
+        dataSlot.style.display = 'none'; // Hide it from the page
+      }
     };
   </script>
 
   <style>
-    /* Ad overlay styling (optional if you want to style the placement of ad) */
+    /* Your custom styling here */
     .ad-overlay {
       position: absolute;
       top: 10px;
@@ -75,22 +39,20 @@
   <center>
     <div class="container">
       <h1 class="title">Cyberpunk Tic Tac Toe</h1>
-      <center>
-        <div class="game-board">
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-        </div>
-      </center>
+      <div class="game-board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
       <div class="message">
         <p class="winner-text"></p>
-        <button id="restart" onclick="showInterstitialAd()">Restart</button> <!-- Show ad on Restart -->
+        <button id="restart">Restart</button>
       </div>
     </div>
   </center>
