@@ -28,36 +28,49 @@
   <!-- Google Mobile Ads SDK -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
+    // Request configuration for test devices
     (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-4481364556222677", // Your Ad Publisher ID
+      google_ad_client: "ca-pub-3940256099942544", // Your Ad Publisher ID
       enable_page_level_ads: true
     });
+
+    // Interstitial ad setup
+    let interstitialAd;
+    function loadInterstitialAd() {
+      interstitialAd = new google.ads.interactive.MediaInterstitialAd({
+        adUnitPath: "ca-app-pub-3940256099942544/1033173712",  // Test interstitial ad ID
+      });
+
+      interstitialAd.load();
+    }
+
+    // Show the interstitial ad when the game ends or at appropriate moment
+    function showInterstitialAd() {
+      if (interstitialAd.isLoaded()) {
+        interstitialAd.show();
+      } else {
+        console.log("Interstitial ad not loaded yet.");
+      }
+    }
+
+    // Load ad on page load
+    window.onload = function() {
+      loadInterstitialAd();
+    };
   </script>
 
   <style>
-    /* Ad overlay styling */
+    /* Ad overlay styling (optional if you want to style the placement of ad) */
     .ad-overlay {
-      position: absolute; /* Overlay the content */
-      top: 10px;          /* Position slightly below the top of the page */
-      left: 50%;          /* Center horizontally */
+      position: absolute;
+      top: 10px;
+      left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;      /* Ensure it appears above other elements */
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <!-- Banner Ad Overlay -->
-  <div class="ad-overlay">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:320px;height:50px"
-         data-ad-client="ca-pub-4481364556222677"
-         data-ad-slot="6300978111">
-    </ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
   <!-- Main Content -->
   <center>
     <div class="container">
@@ -77,7 +90,7 @@
       </center>
       <div class="message">
         <p class="winner-text"></p>
-        <button id="restart">Restart</button>
+        <button id="restart" onclick="showInterstitialAd()">Restart</button> <!-- Show ad on Restart -->
       </div>
     </div>
   </center>
